@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bubble Tea Rush</title>
+  <meta name="description" content="Bubble Tea Rush - a cozy kawaii bubble tea café sim game" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-blobs"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-badge">🧋</div>
+        <div>
+          <h1>Bubble Tea Rush</h1>
+          <p>Cozy café magic, one order at a time</p>
+        </div>
+      </div>
+      <div class="topbar-stats">
+        <div class="pill stat-pill"><span>🪙</span><strong id="coins">0</strong></div>
+        <div class="pill stat-pill"><span>⭐</span><strong id="xp">0</strong></div>
+        <div class="pill stat-pill"><span>💎</span><strong id="gems">0</strong></div>
+        <div class="pill stat-pill"><span>🔥</span><strong id="combo">0</strong></div>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <section id="menu-screen" class="screen visible">
+        <div class="menu-card">
+          <div class="menu-hero">
+            <div class="hero-bubble">🧋</div>
+            <div>
+              <h2>Welcome to your dream bubble tea café</h2>
+              <p>Serve sweet drinks, grow your café, collect mascots, and become the Bubble Tea Master.</p>
+            </div>
+          </div>
+          <div class="menu-grid">
+            <button class="menu-btn primary" data-action="play">Play</button>
+            <button class="menu-btn" data-action="continue">Continue</button>
+            <button class="menu-btn" data-action="settings">Settings</button>
+            <button class="menu-btn" data-action="achievements">Achievements</button>
+            <button class="menu-btn" data-action="howto">How to Play</button>
+            <button class="menu-btn" data-action="credits">Credits</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="game-screen" class="screen hidden">
+        <div class="game-panel">
+          <div class="order-card">
+            <div class="section-title">Current Customer</div>
+            <div class="customer-banner">
+              <div class="avatar">🧁</div>
+              <div>
+                <h3 id="customer-name">Sunny</h3>
+                <p id="customer-note">“I’m craving a fluffy bubble tea treat!”</p>
+              </div>
+            </div>
+            <div class="order-ticket">
+              <div class="ticket-row"><span>Drink</span><strong id="order-drink">Classic Milk Tea</strong></div>
+              <div class="ticket-row"><span>Ice</span><strong id="order-ice">Medium</strong></div>
+              <div class="ticket-row"><span>Sugar</span><strong id="order-sugar">50%</strong></div>
+              <div class="ticket-row"><span>Toppings</span><strong id="order-toppings">Classic Boba</strong></div>
+            </div>
+            <div class="timer-wrap">
+              <div class="timer-bar"><div id="timer-fill" class="timer-fill"></div></div>
+              <div class="timer-label">Time Left <span id="time-left">18</span>s</div>
+            </div>
+          </div>
+
+          <div class="builder-card">
+            <div class="section-title">Build the Order</div>
+            <div class="option-group">
+              <div class="option-label">Drink</div>
+              <div id="drink-options" class="option-grid"></div>
+            </div>
+            <div class="option-group">
+              <div class="option-label">Ice</div>
+              <div id="ice-options" class="option-grid"></div>
+            </div>
+            <div class="option-group">
+              <div class="option-label">Sugar</div>
+              <div id="sugar-options" class="option-grid"></div>
+            </div>
+            <div class="option-group">
+              <div class="option-label">Toppings</div>
+              <div id="topping-options" class="option-grid"></div>
+            </div>
+            <div class="builder-actions">
+              <button id="serve-btn" class="action-btn primary">Serve Order</button>
+              <button id="new-order-btn" class="action-btn">New Customer</button>
+              <button id="back-to-menu-btn" class="action-btn subtle">Main Menu</button>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="section-title">Café Dashboard</div>
+            <div class="status-grid">
+              <div class="status-box"><span>Level</span><strong id="level">1</strong></div>
+              <div class="status-box"><span>Happiness</span><strong id="happiness">100%</strong></div>
+              <div class="status-box"><span>Served</span><strong id="served">0</strong></div>
+              <div class="status-box"><span>Location</span><strong id="location">Bubble Tea Café</strong></div>
+            </div>
+            <div class="mini-panel">
+              <h4>Daily Reward</h4>
+              <p class="muted">Claim free daily goodies to expand your café.</p>
+              <button id="daily-btn" class="action-btn">Claim Daily Reward</button>
+            </div>
+            <div class="mini-panel">
+              <h4>Shop</h4>
+              <p class="muted">Decorations, café themes, and cup designs.</p>
+              <button id="shop-btn" class="action-btn">Open Shop</button>
+            </div>
+            <div class="mini-panel">
+              <h4>Mascots</h4>
+              <p class="muted">Collect adorable helpers for bonus coins and XP.</p>
+              <button id="mascot-btn" class="action-btn">View Mascots</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-screen" class="screen hidden">
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2 id="panel-title">Panel</h2>
+            <button id="close-panel" class="close-btn">✕</button>
+          </div>
+          <div id="panel-content" class="panel-body"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="game.js"></script>
+</body>
+</html>
